@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Franco Gálvez Cornejo — Desarrollador Full-Stack, QA Automation &amp; CI/CD</title>
+  <meta name="description" content="Portafolio de Franco Gálvez Cornejo, estudiante de último año de Ingeniería en Informática (UTEM). Desarrollador Full-Stack con foco en QA Automation (Cypress), CI/CD (GitHub Actions), Cloud (AWS/GCP) y accesibilidad web WCAG 2.1 AA." />
+
+  <!-- Open Graph / LinkedIn -->
+  <meta property="og:title" content="Franco Gálvez Cornejo — Desarrollador Full-Stack, QA Automation &amp; CI/CD" />
+  <meta property="og:description" content="Portafolio profesional: experiencia en FunerariApp (Start-Up Chile SUP 22), CI/CD, Cypress, Next.js, FastAPI, AWS y accesibilidad WCAG 2.1 AA." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CL" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Franco Gálvez Cornejo — Portafolio Full-Stack &amp; QA" />
+  <meta name="twitter:description" content="Desarrollador Full-Stack con foco en QA Automation, CI/CD, Cloud e IA aplicada." />
+
+  <!-- Favicon SVG inline: Orbe Aero azul con símbolo </> -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='orb' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%2367e8f9'/%3E%3Cstop offset='50%25' stop-color='%230284c7'/%3E%3Cstop offset='100%25' stop-color='%23093157'/%3E%3C/linearGradient%3E%3ClinearGradient id='shine' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.8'/%3E%3Cstop offset='100%25' stop-color='%23ffffff' stop-opacity='0.05'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='30' fill='url(%23orb)' stroke='%23ffffff' stroke-width='2.5'/%3E%3Cellipse cx='32' cy='18' rx='18' ry='10' fill='url(%23shine)'/%3E%3Cpath d='M24 24l-8 8 8 8M40 24l8 8-8 8M35 20l-6 24' fill='none' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+
+  <style>
+    /* ==========================================================================
+       1. VARIABLES DE DISEÑO (FRUTIGER AERO + CONTRASTE WCAG 2.1 AA)
+       ========================================================================== */
+    :root {
+      --ocean-deep: #092c4d;
+      --ocean-mid: #0c4a7a;
+      --aqua-dark: #075266;
+      --sky-bright: #38bdf8;
+      --sky-cyan: #67e8f9;
+      --mint-aero: #34d399;
+
+      /* Textos sobre vidrio claro: contraste verificado >= 7:1 (AAA / AA) */
+      --text-primary: #0b2540;
+      --text-body: #16324f;
+      --text-muted: #1e4266;
+
+      /* Superficies Glass */
+      --glass-bg: linear-gradient(160deg, rgba(255, 255, 255, 0.88) 0%, rgba(238, 250, 255, 0.78) 100%);
+      --glass-border: rgba(255, 255, 255, 0.92);
+      --glass-shadow: 0 12px 32px rgba(9, 44, 77, 0.11), inset 0 1px 0 rgba(255, 255, 255, 0.98);
+      --glass-dark-bg: linear-gradient(160deg, rgba(9, 44, 77, 0.95) 0%, rgba(7, 82, 102, 0.92) 100%);
+
+      --radius-sm: 0.75rem;
+      --radius-md: 1.125rem;
+      --radius-lg: 1.5rem;
+      --radius-pill: 9999px;
+
+      --max-width: 70rem;
+      --font-sans: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    /* ==========================================================================
+       2. RESET Y BASE
+       ========================================================================== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-body);
+      background:
+        radial-gradient(circle at 12% 14%, rgba(56, 189, 248, 0.34) 0%, transparent 42%),
+        radial-gradient(circle at 88% 12%, rgba(52, 211, 153, 0.24) 0%, transparent 38%),
+        radial-gradient(circle at 78% 86%, rgba(12, 111, 130, 0.18) 0%, transparent 45%),
+        linear-gradient(155deg, #d7f1ff 0%, #eefaff 48%, #dff8ef 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Foco visible accesible para navegación por teclado */
+    :focus-visible {
+      outline: 3px solid #0284c7;
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    .aero-glass-dark :focus-visible {
+      outline-color: #7dd3fc;
+    }
+
+    /* Enlace "Saltar al contenido principal" (visible al recibir foco) */
+    .skip-link {
+      position: fixed;
+      top: -100px;
+      left: 1rem;
+      z-index: 100;
+      background: var(--ocean-deep);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      border: 2px solid var(--sky-cyan);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    /* ==========================================================================
+       3. BURBUJAS DECORATIVAS AERO EN EL FONDO
+       ========================================================================== */
+    .aero-bubbles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at 30% 28%,
+        rgba(255, 255, 255, 0.88) 0%,
+        rgba(125, 211, 252, 0.26) 45%,
+        rgba(56, 189, 248, 0.08) 72%,
+        rgba(255, 255, 255, 0.45) 100%
+      );
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      box-shadow:
+        inset 0 4px 10px rgba(255, 255, 255, 0.72),
+        0 8px 20px rgba(9, 44, 77, 0.07);
+      opacity: 0.55;
+      animation: floatBubble ease-in-out infinite;
+    }
+
+    .bubble-1 { width: 6rem; height: 6rem; top: 9%; left: 5%; animation-duration: 9s; }
+    .bubble-2 { width: 3.5rem; height: 3.5rem; top: 26%; right: 7%; animation-duration: 7.5s; animation-delay: -2s; }
+    .bubble-3 { width: 8rem; height: 8rem; bottom: 16%; left: 9%; animation-duration: 12s; animation-delay: -4s; }
+    .bubble-4 { width: 5rem; height: 5rem; top: 56%; right: 11%; animation-duration: 10s; animation-delay: -1s; }
+    .bubble-5 { width: 3rem; height: 3rem; bottom: 8%; right: 28%; animation-duration: 8.5s; animation-delay: -3s; }
+
+    @keyframes floatBubble {
+      0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+      50% { transform: translateY(-22px) translateX(10px) scale(1.03); }
+    }
+
+    /* ==========================================================================
+       4. SUPERFICIES Y COMPONENTES AERO GLASS
+       ========================================================================== */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin-inline: auto;
+      padding-inline: 1rem;
+    }
+
+    .aero-glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      border-radius: var(--radius-md);
+    }
+
+    .aero-glass-dark {
+      background: var(--glass-dark-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(186, 230, 253, 0.42);
+      box-shadow: 0 16px 38px rgba(9, 44, 77, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+      border-radius: var(--radius-lg);
+      color: #ffffff;
+    }
+
+    .aero-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(224, 242, 254, 0.88) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.48);
+      box-shadow: inset 0 1px 0 #ffffff, 0 2px 4px rgba(9, 44, 77, 0.05);
+    }
+
+    /* Botones Glossy Aero */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.68rem 1.15rem;
+      min-height: 2.75rem; /* Touch target >= 44px */
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease, background 0.18s ease;
+    }
+
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #0ea5e9 0%, #0369a1 52%, #092c4d 100%);
+      color: #ffffff;
+      border: 1px solid rgba(186, 230, 253, 0.75);
+      box-shadow: 0 6px 18px rgba(3, 105, 161, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 46%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.03) 100%);
+      pointer-events: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.06);
+      box-shadow: 0 10px 24px rgba(3, 105, 161, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(224, 242, 254, 0.88) 100%);
+      color: var(--text-primary);
+      border: 1px solid rgba(2, 132, 199, 0.45);
+      box-shadow: 0 4px 12px rgba(9, 44, 77, 0.08), inset 0 1px 0 #ffffff;
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(180deg, #ffffff 0%, #bae6fd 100%);
+      box-shadow: 0 8px 18px rgba(9, 44, 77, 0.14);
+    }
+
+    .btn-sm {
+      padding: 0.5rem 0.95rem;
+      min-height: 2.5rem;
+      font-size: 0.82rem;
+    }
+
+    /* ==========================================================================
+       5. NAVEGACIÓN FLOTANTE
+       ========================================================================== */
+    .site-header {
+      position: fixed;
+      top: 0.9rem;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      padding-inline: 1rem;
+    }
+
+    .nav-bar {
+      max-width: var(--max-width);
+      margin-inline: auto;
+      padding: 0.65rem 1.15rem;
+      border-radius: var(--radius-md);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(226, 245, 255, 0.8) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.94);
+      box-shadow: 0 8px 26px rgba(9, 44, 77, 0.12), inset 0 1px 0 #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-primary);
+    }
+
+    .aero-orb {
+      position: relative;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #67e8f9 0%, #0284c7 52%, #092c4d 100%);
+      border: 1.5px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 12px rgba(9, 44, 77, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .aero-orb::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 16%;
+      right: 16%;
+      height: 44%;
+      border-radius: 50%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.05) 100%);
+      pointer-events: none;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 1.35rem;
+      list-style: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-body);
+    }
+
+    .nav-links a {
+      padding: 0.35rem 0.25rem;
+      transition: color 0.18s ease;
+    }
+
+    .nav-links a:hover {
+      color: #0369a1;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-cta-desktop {
+      display: none;
+    }
+
+    .mobile-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      padding: 0;
+    }
+
+    .mobile-menu {
+      max-width: var(--max-width);
+      margin: 0.5rem auto 0;
+      padding: 0.85rem;
+      border-radius: var(--radius-md);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 247, 255, 0.92) 100%);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 12px 28px rgba(9, 44, 77, 0.15);
+      display: none;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .mobile-menu.is-open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      padding: 0.7rem 0.9rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+    }
+
+    .mobile-menu a:hover {
+      background: rgba(186, 230, 253, 0.55);
+    }
+
+    /* ==========================================================================
+       6. CONTENIDO PRINCIPAL Y ENCABEZADOS DE SECCIÓN
+       ========================================================================== */
+    main {
+      position: relative;
+      z-index: 10;
+      padding-top: 6.5rem;
+      padding-bottom: 4rem;
+    }
+
+    .sections-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 4.25rem;
+    }
+
+    section[id] {
+      scroll-margin-top: 6rem;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.45rem, 2.5vw, 1.85rem);
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.015em;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 2px;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(90deg, #0284c7 0%, #34d399 55%, transparent 100%);
+    }
+
+    /* ==========================================================================
+       7. HERO EN VENTANA AERO GLASS
+       ========================================================================== */
+    .aero-window {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: linear-gradient(165deg, rgba(255, 255, 255, 0.88) 0%, rgba(235, 249, 255, 0.78) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.94);
+      box-shadow: 0 20px 48px rgba(9, 44, 77, 0.15), inset 0 1px 0 #ffffff;
+    }
+
+    .aero-titlebar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.7rem 1.25rem;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.85) 0%,
+        rgba(186, 230, 253, 0.58) 52%,
+        rgba(125, 211, 252, 0.38) 100%
+      );
+      border-bottom: 1px solid rgba(255, 255, 255, 0.88);
+    }
+
+    .titlebar-info {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .status-dot {
+      width: 0.6rem;
+      height: 0.6rem;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+      flex-shrink: 0;
+    }
+
+    .window-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .win-dot {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(2, 132, 199, 0.4);
+    }
+
+    .win-dot-accent {
+      background: linear-gradient(180deg, #7dd3fc 0%, #0284c7 100%);
+      border-color: #ffffff;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 1.65rem;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .hero-kicker {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--aqua-dark);
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title {
+      font-size: clamp(1.9rem, 4.2vw, 2.95rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    .hero-headline {
+      font-size: clamp(1.08rem, 2vw, 1.32rem);
+      font-weight: 700;
+      color: var(--ocean-mid);
+      line-height: 1.35;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-body);
+      max-width: 40rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      padding-top: 0.35rem;
+    }
+
+    /* Panel técnico lateral en Hero */
+    .hero-panel {
+      padding: 1.25rem;
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .terminal-box {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      background: rgba(5, 22, 40, 0.55);
+      border: 1px solid rgba(186, 230, 253, 0.28);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 0.9rem;
+      color: #e0f2fe;
+    }
+
+    .terminal-prompt {
+      color: #6ee7b7;
+      font-weight: 700;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+    }
+
+    .metric-box {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(186, 230, 253, 0.28);
+      border-radius: var(--radius-sm);
+      padding: 0.65rem 0.75rem;
+    }
+
+    .metric-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #bae6fd;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .metric-value {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 0.15rem;
+    }
+
+    /* ==========================================================================
+       8. EXPERIENCIA PROFESIONAL
+       ========================================================================== */
+    .exp-card {
+      padding: 1.6rem;
+      border-left: 4px solid #0284c7;
+    }
+
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(2, 132, 199, 0.22);
+    }
+
+    .exp-role {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .exp-company {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--aqua-dark);
+      margin-top: 0.15rem;
+    }
+
+    .exp-list {
+      list-style: none;
+      margin-top: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .exp-list li {
+      position: relative;
+      padding-left: 1.35rem;
+      font-size: 0.95rem;
+      color: var(--text-body);
+    }
+
+    .exp-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.58rem;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #38bdf8 0%, #0369a1 100%);
+    }
+
+    .exp-list strong {
+      color: var(--text-primary);
+    }
+
+    .inline-code {
+      font-family: var(--font-mono);
+      font-size: 0.85em;
+      background: rgba(186, 230, 253, 0.65);
+      color: var(--text-primary);
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+    }
+
+    /* ==========================================================================
+       9. PROYECTOS (GRILLA LIMPIA DE 3 TARJETAS SIN FILTROS)
+       ========================================================================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.35rem;
+    }
+
+    .project-card {
+      padding: 1.45rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(9, 44, 77, 0.14), inset 0 1px 0 #ffffff;
+    }
+
+    .project-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.65rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-blue {
+      background: #dbeafe;
+      color: #0b3b60;
+      border: 1px solid #93c5fd;
+    }
+
+    .badge-green {
+      background: #d1fae5;
+      color: #064e3b;
+      border: 1px solid #6ee7b7;
+    }
+
+    .badge-teal {
+      background: #ccfbf1;
+      color: #115e59;
+      border: 1px solid #5eead4;
+    }
+
+    .project-date {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .project-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .project-desc {
+      font-size: 0.91rem;
+      color: var(--text-body);
+    }
+
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      padding-top: 0.2rem;
+    }
+
+    .project-footer {
+      padding-top: 0.9rem;
+      border-top: 1px solid rgba(2, 132, 199, 0.2);
+    }
+
+    .project-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       10. HABILIDADES TÉCNICAS
+       ========================================================================== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.15rem;
+    }
+
+    .skill-card {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .skill-card h3 {
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--aqua-dark);
+    }
+
+    /* ==========================================================================
+       11. FORMACIÓN, CERTIFICACIONES E IDIOMAS
+       ========================================================================== */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .edu-card {
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .edu-card h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .edu-inst {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-body);
+    }
+
+    .languages-box {
+      margin-top: 1.25rem;
+      padding: 1.25rem 1.45rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .languages-box h3 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--aqua-dark);
+    }
+
+    .languages-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      font-size: 0.94rem;
+      color: var(--text-body);
+    }
+
+    .languages-list strong {
+      color: var(--text-primary);
+    }
+
+    /* ==========================================================================
+       12. CONTACTO (SIN EMAIL NI TELÉFONO EN TEXTO PLANO)
+       ========================================================================== */
+    .contact-panel {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .contact-panel h2 {
+      font-size: clamp(1.45rem, 2.8vw, 1.9rem);
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .contact-panel p {
+      color: #e0f2fe;
+      max-width: 42rem;
+      font-size: 0.96rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      padding-top: 0.25rem;
+    }
+
+    .contact-meta {
+      font-size: 0.86rem;
+      color: #bae6fd;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       13. FOOTER Y TOAST ACCESIBLE
+       ========================================================================== */
+    .site-footer {
+      position: relative;
+      z-index: 10;
+      border-top: 1px solid rgba(2, 132, 199, 0.22);
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 1.4rem 1rem;
+      text-align: center;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      z-index: 60;
+      padding: 0.85rem 1.15rem;
+      border-radius: var(--radius-sm);
+      background: var(--ocean-deep);
+      color: #ffffff;
+      border: 1px solid rgba(125, 211, 252, 0.6);
+      box-shadow: 0 12px 30px rgba(9, 44, 77, 0.35);
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .toast.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .toast-dot {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: var(--mint-aero);
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       14. REVELADO PROGRESIVO SEGURO (VISIBLE POR DEFECTO SIN JS)
+       ========================================================================== */
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+
+    html.js-animate .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    html.js-animate .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       15. RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (min-width: 640px) {
+      .container { padding-inline: 1.5rem; }
+      .hero-grid { padding: 2.25rem; }
+      .exp-card { padding: 2rem; }
+      .contact-panel { padding: 2.4rem; }
+      .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .edu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .nav-cta-desktop { display: inline-flex; }
+    }
+
+    @media (min-width: 900px) {
+      .nav-links { display: flex; }
+      .mobile-toggle { display: none; }
+      .mobile-menu.is-open { display: none; }
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.95fr);
+        padding: 2.6rem;
+      }
+      .projects-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (min-width: 1080px) {
+      .skills-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+
+    /* ==========================================================================
+       16. ACCESIBILIDAD: PREFERS-REDUCED-MOTION (WCAG 2.1)
+       ========================================================================== */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .bubble {
+        animation: none !important;
+      }
+
+      .btn,
+      .project-card,
+      .toast,
+      .skip-link,
+      html.js-animate .reveal {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Enlace para saltar navegación (accesibilidad por teclado) -->
+  <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- Burbujas decorativas Aero -->
+  <div class="aero-bubbles" aria-hidden="true">
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+  </div>
+
+  <!-- Notificación accesible al copiar el correo -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+    <span class="toast-dot" aria-hidden="true"></span>
+    <span id="toast-message"></span>
+  </div>
+
+  <!-- Navegación principal -->
+  <header class="site-header">
+    <nav class="nav-bar" aria-label="Navegación principal">
+      <a href="#inicio" class="brand">
+        <span class="aero-orb" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="8 6 2 12 8 18"></polyline>
+            <polyline points="16 6 22 12 16 18"></polyline>
+            <line x1="14" y1="4" x2="10" y2="20"></line>
+          </svg>
+        </span>
+        <span>Franco Gálvez</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#formacion">Formación</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="./franco-galvez-cv.pdf" download class="btn btn-primary btn-sm nav-cta-desktop">
+          Descargar CV
+        </a>
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          class="btn btn-secondary mobile-toggle"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menú móvil accesible -->
+    <div id="mobile-menu" class="mobile-menu" aria-label="Menú móvil">
+      <a href="#experiencia" class="mobile-nav-link">Experiencia</a>
+      <a href="#proyectos" class="mobile-nav-link">Proyectos</a>
+      <a href="#habilidades" class="mobile-nav-link">Habilidades</a>
+      <a href="#formacion" class="mobile-nav-link">Formación</a>
+      <a href="#contacto" class="mobile-nav-link">Contacto</a>
+      <a href="./franco-galvez-cv.pdf" download class="btn btn-primary mobile-nav-link">Descargar CV (PDF)</a>
+    </div>
+  </header>
+
+  <main id="contenido-principal" class="container">
+    <div class="sections-stack">
+
+      <!-- ================================================================
+           1. HERO EN VENTANA ESTILO AERO GLASS
+           ================================================================ -->
+      <section id="inicio" aria-labelledby="hero-name">
+        <div class="aero-window">
+          <div class="aero-titlebar">
+            <div class="titlebar-info">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>franco-galvez.aero — Santiago, Chile</span>
+            </div>
+            <div class="window-controls" aria-hidden="true">
+              <span class="win-dot"></span>
+              <span class="win-dot"></span>
+              <span class="win-dot win-dot-accent"></span>
+            </div>
+          </div>
+
+          <div class="hero-grid">
+            <div class="hero-content">
+              <p class="hero-kicker">Ingeniería en Informática · Último año (UTEM)</p>
+              <h1 id="hero-name" class="hero-title">Franco Gálvez Cornejo</h1>
+              <p class="hero-headline">Desarrollador Full-Stack con foco en QA Automation y CI/CD</p>
+              <p class="hero-subtitle">
+                Estudiante de último año de Ingeniería en Informática en la UTEM, con experiencia práctica construyendo aplicaciones web confiables, pipelines de integración continua, pruebas automatizadas, seguridad y accesibilidad web (WCAG 2.1 AA).
+              </p>
+
+              <div class="hero-actions">
+                <a href="./franco-galvez-cv.pdf" download class="btn btn-primary">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  Descargar CV (PDF)
+                </a>
+
+                <button type="button" class="btn btn-secondary copy-email-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span class="copy-email-label">Copiar Email</span>
+                </button>
+
+                <a href="https://www.linkedin.com/in/franco-g%C3%A1lvez-cornejo-460bb5387/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                  </svg>
+                  LinkedIn
+                </a>
+
+                <a href="https://github.com/fgalvezc-prog" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a10.96 10.96 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+
+            <!-- Panel resumen técnico Aero oscuro -->
+            <aside class="aero-glass-dark hero-panel" aria-label="Resumen de enfoque técnico">
+              <div class="terminal-box">
+                <div><span class="terminal-prompt">$</span> profile --focus</div>
+                <div>Full-Stack · QA Automation · CI/CD</div>
+              </div>
+              <div class="metrics-grid">
+                <div class="metric-box">
+                  <div class="metric-label">Calidad &amp; CI</div>
+                  <div class="metric-value">Actions · Cypress</div>
+                </div>
+                <div class="metric-box">
+                  <div class="metric-label">Full-Stack</div>
+                  <div class="metric-value">Next.js · FastAPI</div>
+                </div>
+                <div class="metric-box">
+                  <div class="metric-label">Cloud</div>
+                  <div class="metric-value">AWS · Firestore</div>
+                </div>
+                <div class="metric-box">
+                  <div class="metric-label">Estándares</div>
+                  <div class="metric-value">WCAG 2.1 AA · C1</div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           2. EXPERIENCIA PROFESIONAL
+           ================================================================ -->
+      <section id="experiencia" class="reveal" aria-labelledby="titulo-experiencia">
+        <div class="section-heading">
+          <h2 id="titulo-experiencia">Experiencia Profesional</h2>
+          <div class="section-line" aria-hidden="true"></div>
+        </div>
+
+        <article class="aero-glass exp-card">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-role">Desarrollador de Software (Práctica Profesional)</h3>
+              <p class="exp-company">FunerariApp (Start-Up Chile SUP 22)</p>
+            </div>
+            <span class="aero-pill">Ago 2026 – Actualidad</span>
+          </div>
+
+          <ul class="exp-list">
+            <li>
+              <strong>CI/CD y Seguridad:</strong> Pipeline automatizado en GitHub Actions (lint, verificación de tipos TypeScript, build y auditoría de vulnerabilidades con <code class="inline-code">pnpm audit</code>) junto a Dependabot para mantener el frontend en Next.js actualizado y libre de fallos antes de producción.
+            </li>
+            <li>
+              <strong>QA Automatizado:</strong> Suite de pruebas End-to-End con Cypress para validar automáticamente los flujos críticos de la plataforma web y su cotizador, reduciendo la verificación manual previa a cada despliegue.
+            </li>
+            <li>
+              <strong>Backend, Datos e IA:</strong> Prototipo funcional de chatbot RAG en Python y Google Cloud Firestore, scripts de extracción automatizada de datos (web scraping) y propuestas técnicas de protección de endpoints (BFF, rate limiting y caché) y migración de Firestore a SQL.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- ================================================================
+           3. PROYECTOS DESTACADOS (GRILLA LIMPIA DE 3 TARJETAS SIN FILTROS)
+           ================================================================ -->
+      <section id="proyectos" class="reveal" aria-labelledby="titulo-proyectos">
+        <div class="section-heading">
+          <h2 id="titulo-proyectos">Proyectos Destacados</h2>
+          <div class="section-line" aria-hidden="true"></div>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Proyecto 1: SSP-UXLab -->
+          <article class="aero-glass project-card">
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="badge badge-blue">Full-Stack · MVP</span>
+                <span class="project-date">Mar – Ago 2026</span>
+              </div>
+              <h3 class="project-title">Plataforma Web SSP-UXLab</h3>
+              <p class="project-desc">
+                Diseño, desarrollo y defensa aprobada de un MVP funcional para UXLab UTEM que digitaliza 7 etapas metodológicas con autenticación, trazabilidad y dashboard de avance.
+              </p>
+              <div class="pill-group" aria-label="Tecnologías utilizadas">
+                <span class="aero-pill">Next.js</span>
+                <span class="aero-pill">React</span>
+                <span class="aero-pill">TypeScript</span>
+                <span class="aero-pill">FastAPI</span>
+                <span class="aero-pill">Supabase</span>
+                <span class="aero-pill">PostgreSQL</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <a href="https://github.com/Damian200520/ssp-uxlab" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a10.96 10.96 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
+                </svg>
+                Ver Repositorio en GitHub
+              </a>
+            </div>
+          </article>
+
+          <!-- Proyecto 2: World Vision Chile -->
+          <article class="aero-glass project-card">
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="badge badge-green">Accesibilidad · Título</span>
+                <span class="project-date">Mar 2026 – En curso</span>
+              </div>
+              <h3 class="project-title">Plataforma Educativa World Vision Chile — Proyecto de Título</h3>
+              <p class="project-desc">
+                Desarrollo colaborativo sobre Moodle 4.5 con 4 entornos personalizados (Infantil, Comunidad, Voluntariado y Corporativo), auditoría de accesibilidad WCAG 2.1 AA y estrategia de integración con SENCE presentada ante el equipo OTEC.
+              </p>
+              <div class="pill-group" aria-label="Tecnologías utilizadas">
+                <span class="aero-pill">Moodle 4.5</span>
+                <span class="aero-pill">WCAG 2.1 AA</span>
+                <span class="aero-pill">Arquitectura Web</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <span class="project-note">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                Proyecto institucional privado
+              </span>
+            </div>
+          </article>
+
+          <!-- Proyecto 3: Infraestructura Cloud en AWS -->
+          <article class="aero-glass project-card">
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="badge badge-teal">Cloud · AWS</span>
+                <span class="project-date">Abr – May 2026</span>
+              </div>
+              <h3 class="project-title">Infraestructura Cloud en AWS</h3>
+              <p class="project-desc">
+                Despliegue de arquitectura multi-instancia en Amazon EC2 conectada a un sistema de archivos compartido (Amazon EFS) y publicación de sitio web estático accesible en Amazon S3.
+              </p>
+              <div class="pill-group" aria-label="Tecnologías utilizadas">
+                <span class="aero-pill">Amazon EC2</span>
+                <span class="aero-pill">Amazon EFS</span>
+                <span class="aero-pill">Amazon S3</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <span class="project-note">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                </svg>
+                Arquitectura Cloud · Laboratorio AWS
+              </span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           4. HABILIDADES TÉCNICAS
+           ================================================================ -->
+      <section id="habilidades" class="reveal" aria-labelledby="titulo-habilidades">
+        <div class="section-heading">
+          <h2 id="titulo-habilidades">Habilidades Técnicas</h2>
+          <div class="section-line" aria-hidden="true"></div>
+        </div>
+
+        <div class="skills-grid">
+          <div class="aero-glass skill-card">
+            <h3>Lenguajes y Frameworks</h3>
+            <div class="pill-group">
+              <span class="aero-pill">Python</span>
+              <span class="aero-pill">TypeScript</span>
+              <span class="aero-pill">React</span>
+              <span class="aero-pill">Next.js</span>
+              <span class="aero-pill">FastAPI</span>
+              <span class="aero-pill">SQL</span>
+              <span class="aero-pill">HTML</span>
+              <span class="aero-pill">CSS</span>
+            </div>
+          </div>
+
+          <div class="aero-glass skill-card">
+            <h3>QA, DevOps y Seguridad</h3>
+            <div class="pill-group">
+              <span class="aero-pill">GitHub Actions (CI/CD)</span>
+              <span class="aero-pill">Cypress (E2E)</span>
+              <span class="aero-pill">Dependabot</span>
+              <span class="aero-pill">Docker</span>
+              <span class="aero-pill">Git</span>
+              <span class="aero-pill">Linux</span>
+            </div>
+          </div>
+
+          <div class="aero-glass skill-card">
+            <h3>Cloud y Bases de Datos</h3>
+            <div class="pill-group">
+              <span class="aero-pill">AWS (EC2, EFS, S3)</span>
+              <span class="aero-pill">Google Cloud (Firestore)</span>
+              <span class="aero-pill">PostgreSQL</span>
+              <span class="aero-pill">Supabase</span>
+            </div>
+          </div>
+
+          <div class="aero-glass skill-card">
+            <h3>IA y Especialidades</h3>
+            <div class="pill-group">
+              <span class="aero-pill">LangChain / RAG</span>
+              <span class="aero-pill">APIs REST</span>
+              <span class="aero-pill">Web Scraping</span>
+              <span class="aero-pill">Accesibilidad Web (WCAG 2.1 AA)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           5. FORMACIÓN ACADÉMICA, CERTIFICACIONES E IDIOMAS
+           ================================================================ -->
+      <section id="formacion" class="reveal" aria-labelledby="titulo-formacion">
+        <div class="section-heading">
+          <h2 id="titulo-formacion">Formación Académica y Certificaciones</h2>
+          <div class="section-line" aria-hidden="true"></div>
+        </div>
+
+        <div class="edu-grid">
+          <article class="aero-glass edu-card">
+            <div><span class="badge badge-blue">2023 – En curso · Último año</span></div>
+            <h3>Ingeniería en Informática</h3>
+            <p class="edu-inst">Universidad Tecnológica Metropolitana (UTEM)</p>
+          </article>
+
+          <article class="aero-glass edu-card">
+            <div><span class="badge badge-green">Completado · 2025</span></div>
+            <h3>Red Hat System Administration I (RHEL 9.3)</h3>
+            <p class="edu-inst">Red Hat Academy</p>
+          </article>
+        </div>
+
+        <div class="aero-glass languages-box" aria-labelledby="titulo-idiomas">
+          <h3 id="titulo-idiomas">Idiomas</h3>
+          <ul class="languages-list">
+            <li><strong>Español:</strong> Nativo.</li>
+            <li><strong>Inglés:</strong> C1 (Avanzado) — Lectura técnica, documentación y comunicación fluida.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           6. CONTACTO (PRIVACIDAD PROTEGIDA)
+           ================================================================ -->
+      <section id="contacto" class="reveal" aria-labelledby="titulo-contacto">
+        <div class="aero-glass-dark contact-panel">
+          <h2 id="titulo-contacto">¿Conversamos sobre un rol o proyecto?</h2>
+          <p>
+            Disponible para oportunidades en desarrollo Full-Stack, QA Automation y CI/CD. Puedes descargar mi currículum, copiar mi correo electrónico o escribirme directamente por LinkedIn.
+          </p>
+          <p class="contact-meta">Ubicación: Santiago, Chile · Disponibilidad remota o híbrida</p>
+
+          <div class="contact-actions">
+            <button type="button" class="btn btn-primary copy-email-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span class="copy-email-label">Copiar Email</span>
+            </button>
+
+            <a href="./franco-galvez-cv.pdf" download class="btn btn-secondary">
+              Descargar CV (PDF)
+            </a>
+
+            <a href="https://www.linkedin.com/in/franco-g%C3%A1lvez-cornejo-460bb5387/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              LinkedIn
+            </a>
+
+            <a href="https://github.com/fgalvezc-prog" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              GitHub
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    © 2026 Franco Gálvez Cornejo · Portafolio Web Aero
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ----------------------------------------------------------------------
+         1. MENÚ MÓVIL ACCESIBLE (aria-expanded + Escape)
+         ---------------------------------------------------------------------- */
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function setMenuState(isOpen) {
+        if (!menuBtn || !mobileMenu) return;
+        menuBtn.setAttribute('aria-expanded', String(isOpen));
+        menuBtn.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+        mobileMenu.classList.toggle('is-open', isOpen);
+      }
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function () {
+          const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+          setMenuState(!expanded);
+        });
+
+        mobileLinks.forEach(function (link) {
+          link.addEventListener('click', function () {
+            setMenuState(false);
+          });
+        });
+
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true') {
+            setMenuState(false);
+            menuBtn.focus();
+          }
+        });
+      }
+
+      /* ----------------------------------------------------------------------
+         2. COPIADO DE EMAIL CON PRIVACIDAD (ENSAMBLADO DINÁMICO EN JS)
+         ---------------------------------------------------------------------- */
+      const copyButtons = document.querySelectorAll('.copy-email-btn');
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toast-message');
+      let toastTimeout = null;
+
+      function getEmailAddress() {
+        return ['galvezfranco315', 'gmail.com'].join('@');
+      }
+
+      function showToast(message) {
+        if (!toast || !toastMessage) return;
+        toastMessage.textContent = message;
+        toast.classList.add('is-visible');
+        window.clearTimeout(toastTimeout);
+        toastTimeout = window.setTimeout(function () {
+          toast.classList.remove('is-visible');
+        }, 2800);
+      }
+
+      function fallbackCopy(text) {
+        const tempTextarea = document.createElement('textarea');
+        tempTextarea.value = text;
+        tempTextarea.setAttribute('readonly', '');
+        tempTextarea.style.position = 'fixed';
+        tempTextarea.style.opacity = '0';
+        document.body.appendChild(tempTextarea);
+        tempTextarea.select();
+        const success = document.execCommand('copy');
+        document.body.removeChild(tempTextarea);
+        return success;
+      }
+
+      async function copyEmailToClipboard(triggerBtn) {
+        const email = getEmailAddress();
+        let copied = false;
+
+        try {
+          if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+            await navigator.clipboard.writeText(email);
+            copied = true;
+          } else {
+            copied = fallbackCopy(email);
+          }
+        } catch (err) {
+          try {
+            copied = fallbackCopy(email);
+          } catch (fallbackErr) {
+            copied = false;
+          }
+        }
+
+        const label = triggerBtn.querySelector('.copy-email-label');
+        if (copied) {
+          if (label) {
+            label.textContent = '¡Email copiado!';
+            window.setTimeout(function () {
+              label.textContent = 'Copiar Email';
+            }, 2200);
+          }
+          showToast('Correo copiado al portapapeles');
+        } else {
+          showToast('No se pudo copiar automáticamente. Escríbeme por LinkedIn.');
+        }
+      }
+
+      copyButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          copyEmailToClipboard(btn);
+        });
+      });
+
+      /* ----------------------------------------------------------------------
+         3. ANIMACIÓN PROGRESIVA SEGURA (RESPETA prefers-reduced-motion)
+         ---------------------------------------------------------------------- */
+      const prefersReducedMotion =
+        window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+        document.documentElement.classList.add('js-animate');
+        const revealNodes = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        revealNodes.forEach(function (node) {
+          observer.observe(node);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
